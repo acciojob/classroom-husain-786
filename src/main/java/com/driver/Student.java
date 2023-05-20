@@ -6,9 +6,9 @@ public class Student {
 	private int age;
 	private double averageScore;
 
-	public Student() {
-
-	}
+//	public Student() {
+//		
+//	}
 
 	public String getName() {
 		return name;
