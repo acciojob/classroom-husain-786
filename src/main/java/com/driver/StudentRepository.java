@@ -2,6 +2,9 @@ package com.driver;
 
 import java.util.*;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class StudentRepository {
 	private Map<String, Student> studentDB;
 	private Map<String, Teacher> teacherDB;
