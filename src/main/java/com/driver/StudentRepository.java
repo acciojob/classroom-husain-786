@@ -32,14 +32,22 @@ public class StudentRepository {
 
 	// adding new Student under Teacher into database....	
 	public Optional<String> addStudentAndTeacher(String student, String teacher) {		
-		if (studentDB.containsKey(student) && teacherDB.containsKey(teacher)) {
-			studentTeacherPairDB.get(teacher).add(student);
-			Student s = studentDB.get(student); Teacher t = teacherDB.get(teacher);
-			studentTeacherDB.get(t).add(s); 
-			String str = "Student '" + student + "' is added successfuly under Teacher '" + teacher + "'!!!!"; 
-			return Optional.of(str);
+		if (!studentTeacherPairDB.containsKey(teacher)){
+			studentTeacherPairDB.put(teacher, new HashSet<>());
 		}
-		return Optional.empty();		 
+		studentTeacherPairDB.get(teacher).add(student);	
+		String str = "Student '" + student + "' is added successfuly under Teacher '" + teacher + "'!!!!"; 
+		return Optional.of(str);
+		
+//		if (studentDB.containsKey(student) && teacherDB.containsKey(teacher)) {
+////			studentTeacherPairDB.get(teacher).add(student);
+//			Student s = studentDB.get(student); 
+//			Teacher t = teacherDB.get(teacher);
+//			studentTeacherDB.get(t).add(s); 
+//			String str = "Student '" + student + "' is added successfuly under Teacher '" + teacher + "'!!!!"; 
+//			return Optional.of(str);
+//		}
+//		return Optional.empty();		 
 	}
 
 	// getting student by name...
