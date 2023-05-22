@@ -3,12 +3,15 @@ package com.driver;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentService {
 
-	private StudentRepository studentRepository = new StudentRepository();
+//	private StudentRepository studentRepository = new StudentRepository();
+	@Autowired
+	private StudentRepository studentRepository;
 	
 	// adding student.....
 	public String addStudent(Student student) {
