@@ -16,20 +16,23 @@ public class StudentService {
 	// adding student.....
 	public String addStudent(Student student) {
 		studentRepository.addStudent(student);
-		return "Student added by name: " + student.getName();
+		return "SUCCESS";
 	}
 
 	public String addTeacher(Teacher teacher) {
 		studentRepository.addTeacher(teacher);
-		return "Teacher added by name: " + teacher.getName();
+		return "SUCCESS";
 	}
 
-	public String addStudentAndTeacher(String student, String teacher) {		
-		Optional<String> message = studentRepository.addStudentAndTeacher(student, teacher);
-		if (message.isEmpty()) {
-			return "Either Student or Teacher is not present!!!";
-		}
-		return message.get();
+//	public String addStudentAndTeacher(String student, String teacher) {
+//		Optional<String> message = studentRepository.addStudentAndTeacher(student, teacher);
+//		if (message.isEmpty()) {
+//			return "Either Student or Teacher is not present!!!";
+//		}
+//		return message.get();
+//	}
+	public String addStudentAndTeacher(String student, String teacher) {
+		return studentRepository.addStudentAndTeacher(student, teacher);
 	}
 
 	public Student getStudentByName(String name) {
@@ -64,8 +67,8 @@ public class StudentService {
 		return message.get();
 	}
 
-	public void deleteAllTeachers() {
-		studentRepository.deleteAllTeachers();
+	public String deleteAllTeachers() {
+		return studentRepository.deleteAllTeachers();
 	}
 
 	public List<String> getAllStudents() {

@@ -101,7 +101,7 @@ public class StudentController {
     
     @DeleteMapping("/delete-all-teachers")
     public ResponseEntity<String> deleteAllTeachers(){
-    	studentService.deleteAllTeachers();
-        return new ResponseEntity<>("All teachers deleted successfully", HttpStatus.CREATED);
+    	String str = studentService.deleteAllTeachers();
+        return new ResponseEntity<>(str, HttpStatus.CREATED);
     }
 }
